@@ -9,25 +9,13 @@ scene.fog = new THREE.FogExp2(0x000000, 0.0015);
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
 camera.position.set(0, 20, 30);
 
-// Ambil elemen audio dan tombol
+// Ambil elemen audio
 const bgMusic = document.getElementById("bgMusic");
-const btn = document.getElementById("musicButton");
 
-// Event listener untuk tombol musik
-btn.addEventListener("click", () => {
-  if (bgMusic.paused) {
-    bgMusic.play();
-    btn.innerText = "Pause Musik ⏸️";
-  } else {
-    bgMusic.pause();
-    btn.innerText = "Mainkan Musik 🎵";
-  }
-});
-
-// Optional: coba autoplay saat halaman dibuka
+// Autoplay saat halaman dibuka
 window.addEventListener("load", () => {
   bgMusic.play().catch(() => {
-    console.log("Autoplay diblokir browser, klik tombol untuk mulai musik.");
+    console.log("Autoplay diblokir browser, musik akan jalan setelah interaksi user.");
   });
 });
 
